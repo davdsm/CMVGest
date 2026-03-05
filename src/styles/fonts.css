@@ -1,0 +1,15 @@
+/* Title font: Melodrama (self-hosted when files are in /fonts/)
+   Fallback: Bodoni Moda from Google Fonts so titles always use a display serif */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Self-hosted Melodrama (Indian Type Foundry) – titles use this when loaded */
+@font-face {
+  font-family: 'Melodrama';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/melodrama/Melodrama-Variable.ttf') format('truetype');
+}
