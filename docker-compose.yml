@@ -1,10 +1,12 @@
 services:
   cmvgest:
+    container_name: cmvgest
+    hostname: cmvgest
     build:
       context: .
       args:
         # Uses host .env VITE_MAINTANCE_MODE when you run docker compose; default false
         VITE_MAINTANCE_MODE: ${VITE_MAINTANCE_MODE:-false}
     ports:
-      - "3000:3000"
+      - "4000:3000"
     restart: unless-stopped
