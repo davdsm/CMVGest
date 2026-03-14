@@ -10,3 +10,9 @@ services:
     ports:
       - "4000:3000"
     restart: unless-stopped
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
