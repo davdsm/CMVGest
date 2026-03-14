@@ -3,7 +3,7 @@
 :root {
   --font-size: 16px;
   --font-title: "Melodrama", "Bodoni Moda", serif;
-  --background: #ffffff;
+  --background: #000000;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
@@ -183,6 +183,18 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+
+  /*
+   * Ensure all interactive elements show the pointer cursor.
+   * Buttons and links already behave like this visually, this only standardizes the cursor.
+   */
+  button,
+  [type="button"],
+  [type="submit"],
+  a,
+  [role="button"] {
+    cursor: pointer;
   }
 }
 

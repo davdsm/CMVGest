@@ -10,6 +10,7 @@ export {
   ChevronRightIcon,
   PlayCircleIcon,
   ArrowUpRightIcon,
+  ArrowDownIcon,
 } from "@heroicons/react/24/outline";
 
 import svgPaths from "../../../imports/svg-7r9f2cy0cj";

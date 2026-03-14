@@ -1,14 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
-import imgLogoLightPng from "/images/7250b8774e04f49ddd725b63bb8135e0d15b4dc.png";
-import imgModernKitchenOfAModernVilla20210826153258Utc1 from "/images/9041560a144b4edb99478eb641ff70ecaa9a212d.png";
-import imgBeautifulModernKitchenInLuxuryContemporaryHo20221213050023Utc1 from "/images/c7cbf7d560133531587e319e52a3c009965507e1.png";
 import { ArrowUpRightIcon } from "../../components/icons";
 import { viewport, fadeInUpContainer, fadeInUpItem } from "../../lib/motion";
+import { mediaConfig } from "../mediaConfig";
 
-export function ConceptSection() {
+type ConceptSectionProps = {
+  onOpenContact?: () => void;
+};
+
+export function ConceptSection({ onOpenContact }: ConceptSectionProps) {
+  const logoSrc = "/images/7250b8774e04f49ddd725b63bb8135e0d15b4dc.png";
+
   return (
     <motion.section
+      id="concept-section"
       className="relative w-full bg-[#3a2735] py-16 md:py-24 px-6 md:px-16 overflow-hidden"
       initial="hidden"
       whileInView="visible"
@@ -22,7 +27,7 @@ export function ConceptSection() {
           <motion.div variants={fadeInUpItem} className="relative w-[140px] h-[140px] md:w-[170px] md:h-[170px]">
             <div className="absolute inset-0 flex items-center justify-center">
               <img
-                src={imgLogoLightPng}
+                src={logoSrc}
                 alt="CMVGest"
                 className="w-14 h-auto object-contain"
               />
@@ -33,7 +38,7 @@ export function ConceptSection() {
               </defs>
               <text fill="white" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 200, fontSize: "14.5px", letterSpacing: "5px" }}>
                 <textPath xlinkHref="#circlePath2">
-                  PROPERTY BEST · COMFORT ·
+                  VALOR · INTEGRIDADE · CONFIANÇA ·
                 </textPath>
               </text>
             </svg>
@@ -60,51 +65,76 @@ export function ConceptSection() {
             Sabemos que construir casa pode ser um processo exigente. Licenciamentos, decisões técnicas, controlo de orçamento, acompanhamento de obra, são muitas as variáveis que podem gerar ansiedade e incerteza.             Foi precisamente para eliminar essa complexidade que estruturámos um modelo totalmente chave na mão.
           </motion.p>
 
-          {/* Partner logos placeholder */}
+          {/* Parceiros */}
           <motion.div variants={fadeInUpItem} className="flex gap-3 mt-4">
-            {["", "", "", ""].map((_, i) => (
-              <div key={i} className="w-[85px] h-[75px] rounded-full md:rounded-[80px] bg-[rgba(217,217,217,0.1)]" />
+            {[
+              {
+                name: "Conquistador",
+                img: "conquistador.svg",
+                href: "https://www.doutorfinancas.pt/rede-loja-conquistador-guimaraes/?ref=678a30a3ebbfe&src=icdf.ch.propostaeloquente.danielapereira.cartaodevisita",
+              },
+            ].map((partner) => (
+              <a
+                key={partner.name}
+                href={partner.href}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full md:rounded-[80px] bg-[rgba(217,217,217,0.1)] p-8 inline-flex items-center justify-center hover:bg-[rgba(217,217,217,0.18)] transition-colors"
+              >
+                <img
+                  src={`/partners/${partner.img}`}
+                  alt={partner.name}
+                  className="w-32 h-full object-contain"
+                />
+              </a>
             ))}
           </motion.div>
         </div>
 
-        {/* Right - Images */}
-        <motion.div variants={fadeInUpItem} className="lg:w-1/2 relative min-h-[400px] md:min-h-[600px]">
-          {/* Back circle image */}
-          <div
-            className="absolute right-0 top-0 w-[80%] aspect-square rounded-full overflow-hidden"
-            style={{
-              maskImage: `url('${imgModernKitchenOfAModernVilla20210826153258Utc1}')`,
-              maskSize: "cover",
-              maskPosition: "center",
-              WebkitMaskImage: `url('${imgModernKitchenOfAModernVilla20210826153258Utc1}')`,
-              WebkitMaskSize: "cover",
-              WebkitMaskPosition: "center",
-            }}
-          >
-            <div className="w-full h-full bg-[rgba(255,255,255,0.06)]" />
-          </div>
+        {/* Right - Circles illustration */}
+        <motion.div
+          variants={fadeInUpItem}
+          className="lg:w-1/2 relative min-h-[420px] md:min-h-[640px] flex items-center justify-center"
+        >
+          <div className="relative w-[82vw] max-w-[520px] aspect-square">
+            {/* Back circle (20% opacity image) */}
+            <div
+              className="absolute right-[-22%] top-[8%] h-full w-[78%] aspect-square rounded-full bg-[#F5F4F1] opacity-20"
+              style={{
+                backgroundImage: `url(${mediaConfig.concept.backCircle})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            />
 
-          {/* Front circle image */}
-          <div
-            className="absolute left-0 top-[20%] w-[75%] aspect-square rounded-full overflow-hidden"
-            style={{
-              maskImage: `url('${imgBeautifulModernKitchenInLuxuryContemporaryHo20221213050023Utc1}')`,
-              maskSize: "cover",
-              maskPosition: "center",
-              WebkitMaskImage: `url('${imgBeautifulModernKitchenInLuxuryContemporaryHo20221213050023Utc1}')`,
-              WebkitMaskSize: "cover",
-              WebkitMaskPosition: "center",
-            }}
-          >
-            <div className="w-full h-full bg-[#44353e]" />
-          </div>
+            {/* Front main circle */}
+            <div
+              className="absolute left-0 top-0 h-full w-[82%] aspect-square rounded-full bg-[#403039] flex items-center justify-center"
+              style={{
+                backgroundImage: `url(${mediaConfig.concept.frontCircle})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundBlendMode: "multiply",
+              }}
+            >
+              <span
+                className="text-white/60 text-[11px] md:text-xs"
+                style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
+              >
+                imagem de chave na mão
+              </span>
 
-          {/* Arrow button */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-            <button className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#AF6693] flex items-center justify-center shadow-[0_30px_76px_rgba(0,0,0,0.4)] hover:bg-[#c077a6] transition-colors">
-              <ArrowUpRightIcon className="w-9 h-9 md:w-10 md:h-10 text-white" strokeWidth={2} />
-            </button>
+              {/* Arrow button anchored to bottom center of main circle */}
+              <div className="absolute left-1/2 bottom-[-10%] -translate-x-1/2">
+                <button
+                  type="button"
+                  onClick={onOpenContact}
+                  className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#AF6693] flex items-center justify-center shadow-[0_42px_90px_rgba(0,0,0,0.55)] hover:bg-[#c077a6] transition-colors cursor-pointer"
+                >
+                  <ArrowUpRightIcon className="w-9 h-9 md:w-10 md:h-10 text-white" strokeWidth={2} />
+                </button>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

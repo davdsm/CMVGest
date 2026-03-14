@@ -3,9 +3,14 @@ import { motion } from "framer-motion";
 import imgLogoLightPng from "/images/7250b8774e04f49ddd725b63bb8135e0d15b4dc.png";
 import { viewport, fadeInUpContainer, fadeInUpItem } from "../../lib/motion";
 
-export function SolutionsSection() {
+type SolutionsSectionProps = {
+  onOpenContact?: () => void;
+};
+
+export function SolutionsSection({ onOpenContact }: SolutionsSectionProps) {
   return (
     <motion.section
+      id="solutions-section"
       className="relative w-full bg-[#3a2735] py-16 md:py-24 px-6 md:px-16"
       initial="hidden"
       whileInView="visible"
@@ -30,7 +35,7 @@ export function SolutionsSection() {
               </defs>
               <text fill="white" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 200, fontSize: "14.5px", letterSpacing: "5px" }}>
                 <textPath xlinkHref="#circlePath">
-                  PROPERTY BEST · COMFORT ·
+                  VALOR · INTEGRIDADE · CONFIANÇA ·
                 </textPath>
               </text>
             </svg>
@@ -48,8 +53,9 @@ export function SolutionsSection() {
 
           <motion.button
             variants={fadeInUpItem}
-            className="bg-[#af6693] text-white px-8 py-4 rounded-full hover:bg-[#c077a6] transition-colors"
+            className="bg-[#af6693] text-white px-8 py-4 rounded-full hover:bg-[#c077a6] transition-colors cursor-pointer"
             style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, fontSize: "16px" }}
+            onClick={onOpenContact}
           >
             Enviar Mensagem
           </motion.button>

@@ -1,22 +1,22 @@
 import React from "react";
-import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import { SolutionsSection } from "./components/SolutionsSection";
 import { VideoSection } from "./components/VideoSection";
 import { ProjectsSection } from "./components/ProjectsSection";
 import { ConceptSection } from "./components/ConceptSection";
-import { Footer } from "./components/Footer";
 
-export function HomePage() {
+type HomePageProps = {
+  onOpenContact?: () => void;
+};
+
+export function HomePage({ onOpenContact }: HomePageProps) {
   return (
-    <div className="w-full min-h-screen bg-[#3a2735] overflow-x-hidden">
-      <Navbar />
+    <>
       <HeroSection />
-      <SolutionsSection />
+      <SolutionsSection onOpenContact={onOpenContact} />
       <VideoSection />
       <ProjectsSection />
-      <ConceptSection />
-      <Footer />
-    </div>
+      <ConceptSection onOpenContact={onOpenContact} />
+    </>
   );
 }
