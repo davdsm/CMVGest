@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { fadeInUpContainer, fadeInUpItem } from "../lib/motion";
 
 const GALLERY_IMAGES = [
-
   "/images/projects/house.png",
   "/images/projects/casa2.png",
   "/images/projects/house.png",
@@ -15,6 +14,16 @@ const GALLERY_IMAGES = [
   "/images/projects/house.png",
   "/images/projects/casa2.png",
   "/images/projects/house.png",
+  "/images/projects/casa2.png",
+  "/images/projects/house.png",
+  "/images/projects/casa2.png",
+  "/images/projects/house.png",
+  "/images/projects/casa2.png",
+  "/images/projects/house.png",
+  "/images/projects/casa2.png",
+  "/images/projects/house.png",
+  "/images/projects/casa2.png",
+  "/images/projects/house.png"
 ];
 
 const CAROUSEL_GAP = 16;
