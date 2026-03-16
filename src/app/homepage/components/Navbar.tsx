@@ -127,7 +127,7 @@ export function Navbar({ onOpenContact, onNavigate }: NavbarProps) {
                   aria-label="Ir para a página inicial"
                 >
                   <img
-                    src={imgLogoLightPng}
+                    src="/logo.svg"
                     alt="CMVGest Logo"
                     className="h-7 w-auto object-contain invert"
                   />
