@@ -129,13 +129,8 @@ export function Navbar({ onOpenContact, onNavigate }: NavbarProps) {
                   <img
                     src="/logo.svg"
                     alt="CMVGest Logo"
-                    className="h-7 w-auto object-contain invert"
+                    className="h-7 w-auto object-contain"
                   />
-                  <span
-                    className="font-title text-[18px] font-bold leading-none text-white"
-                  >
-                    CMVGest
-                  </span>
                 </button>
                 <button
                   type="button"
