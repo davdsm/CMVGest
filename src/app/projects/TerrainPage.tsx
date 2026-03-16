@@ -16,7 +16,7 @@ export function TerrainPage({ onOpenContact }: TerrainPageProps) {
         {/* Badge */}
         <motion.div className="flex justify-center" variants={fadeInUpItem}>
           <span className="rounded-full bg-[#3a2735] px-6 py-1 text-[11px] font-medium tracking-[0.25em] text-white uppercase">
-            Vermil
+            Vermil - Guimarães
           </span>
         </motion.div>
 
@@ -62,8 +62,7 @@ export function TerrainPage({ onOpenContact }: TerrainPageProps) {
                 lineHeight: 1.6,
               }}
             >
-              Não vendemos apenas um terreno. Criamos a solução completa para a
-              sua futura casa, com um acompanhamento próximo em cada decisão.
+              O cliente não precisa de procurar equipas, negociar contratos ou resolver imprevistos. A responsabilidade é nossa, do primeiro esboço ao momento da entrega da chave.
             </p>
             <button
               type="button"
@@ -86,9 +85,9 @@ export function TerrainPage({ onOpenContact }: TerrainPageProps) {
                 backgroundClip: "text",
               }}
             >
-              Soluções completas.
+              O sonho da casa própria.
               <br />
-              Zero complicações.
+              Começa aqui.
             </h2>
             <p
               className="max-w-xl text-sm md:text-[15px] text-[#4b3a46]"
@@ -98,12 +97,20 @@ export function TerrainPage({ onOpenContact }: TerrainPageProps) {
                 lineHeight: 1.7,
               }}
             >
+
+              Não vendemos apenas um terreno. Criamos a solução completa para a
+              sua futura casa, com um acompanhamento próximo em cada decisão.<br />
               Todo o processo é desenvolvido em regime chave na mão, o que
               significa que a gestão técnica, os prazos, os fornecedores e a
-              execução estão totalmente assegurados. O cliente não precisa de
-              procurar equipas, negociar contratos ou resolver imprevistos. A
-              responsabilidade é nossa, do primeiro esboço ao momento da entrega
-              da chave.
+              execução estão totalmente assegurados.
+
+              <br /><br />
+              <h2><b>Lote 1:</b> 206.10m2<br /></h2>
+              <h2><b>Lote 2:</b> 154.00m2<br /></h2>
+              <h2><b>Lote 3:</b> 171.25m2<br /></h2>
+              <h2><b>Lote 4:</b> 188.50m2<br /></h2>
+              <h2><b>Lote 5:</b> 205.70m2<br /></h2>
+              <h2><b>Lote 6:</b> 514.80m2<br /></h2>
             </p>
           </div>
         </motion.section>

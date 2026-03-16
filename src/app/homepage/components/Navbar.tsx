@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import imgLogoLightPng from "/images/7250b8774e04f49ddd725b63bb8135e0d15b4dc.png";
 import { Bars3Icon } from "../../components/icons";
 import { fadeInUpContainer, fadeInUpItem } from "../../lib/motion";
 import { useRouter } from "../../router";
@@ -62,17 +61,11 @@ export function Navbar({ onOpenContact, onNavigate }: NavbarProps) {
           aria-label="Ir para a página inicial"
         >
           <img
-            src={imgLogoLightPng}
+            src="/logo.svg"
             alt="CMVGest Logo"
-            className="h-7 md:h-9 w-auto object-contain shrink-0"
+            className="h-7 md:h-12 w-auto object-contain shrink-0"
             style={isLightPage ? { filter: "invert(1)" } : undefined}
           />
-          <span
-            className="font-title text-[17px] md:text-[22px] font-bold leading-none flex items-center"
-            style={{ color: isLightPage ? "#0f0b11" : "#ffffff" }}
-          >
-            CMVGest
-          </span>
         </motion.button>
         <motion.div variants={fadeInUpItem} className="hidden md:flex bg-[#e6e8ee] rounded-full overflow-hidden">
           <div className="flex items-center gap-2 px-3 py-2">

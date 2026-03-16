@@ -60,7 +60,7 @@ export function ConceptSection({ onOpenContact }: ConceptSectionProps) {
           <motion.p
             variants={fadeInUpItem}
             className="text-[#a0a0a0] max-w-[450px]"
-            style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 500, fontSize: "18px", lineHeight: 1.5 }}
+            style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 400, fontSize: "18px", lineHeight: 1.5 }}
           >
             Sabemos que construir casa pode ser um processo exigente. Licenciamentos, decisões técnicas, controlo de orçamento, acompanhamento de obra, são muitas as variáveis que podem gerar ansiedade e incerteza.             Foi precisamente para eliminar essa complexidade que estruturámos um modelo totalmente chave na mão.
           </motion.p>
@@ -97,35 +97,29 @@ export function ConceptSection({ onOpenContact }: ConceptSectionProps) {
           className="lg:w-1/2 relative min-h-[420px] md:min-h-[640px] flex items-center justify-center"
         >
           <div className="relative w-[82vw] max-w-[520px] aspect-square">
-            {/* Back circle (20% opacity image) */}
+            {/* Back circle (soft key image glow) */}
             <div
-              className="absolute right-[-22%] top-[8%] h-full w-[78%] aspect-square rounded-full bg-[#F5F4F1] opacity-20"
+              className="absolute right-[-22%] top-[8%] h-full w-[78%] aspect-square rounded-full opacity-25"
               style={{
-                backgroundImage: `url(${mediaConfig.concept.backCircle})`,
+                backgroundImage: "url(/images/key.jpeg)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
+                filter: "blur(2px)",
               }}
             />
 
-            {/* Front main circle */}
+            {/* Front main circle with key image */}
             <div
-              className="absolute left-0 top-0 h-full w-[82%] aspect-square rounded-full bg-[#403039] flex items-center justify-center"
+              className="absolute left-0 top-0 h-full w-[82%] aspect-square rounded-full flex items-center justify-center"
               style={{
-                backgroundImage: `url(${mediaConfig.concept.frontCircle})`,
+                backgroundImage: "url(/images/key.jpeg)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundBlendMode: "multiply",
               }}
             >
-              <span
-                className="text-white/60 text-[11px] md:text-xs"
-                style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}
-              >
-                imagem de chave na mão
-              </span>
-
               {/* Arrow button anchored to bottom center of main circle */}
-              <div className="absolute left-1/2 bottom-[-10%] -translate-x-1/2">
+              <div className="absolute left-1/2 bottom-[-10%] -translate-x-1/2 z-10">
                 <button
                   type="button"
                   onClick={onOpenContact}

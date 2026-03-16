@@ -13,7 +13,7 @@ export function ProjectsSection() {
       id: "house",
       title: "Moradia de Referência",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere, urna in pulvinar vulputate, diam arcu porta lorem, in consequat lacus est sed odio. Proin congue, nunc sed vehicula cursus, velit ante dictum nisl, sit amet fermentum.",
+        "Projeto de moradia unifamiliar de dois pisos, com 298 m² de área total de construção, inserido num lote de 400 m².",
       image: "/images/projects/house.png",
       link: "#moradia",
       ctaLabel: "Ver Moradia",
@@ -22,8 +22,8 @@ export function ProjectsSection() {
       id: "terrain",
       title: "Terreno em Vermil",
       description:
-        "Trata-se de uma localização estratégica, onde a calma do contexto envolvente se combina com a valorização crescente da zona. Construir aqui é escolher viver com mais conforto, mais liberdade e maior segurança no investimento.",
-      image: "/images/projects/planta.jpg",
+        "Construir aqui é escolher viver com mais conforto, mais liberdade e maior segurança no investimento.",
+      image: "/images/projects/terrain.jpg",
       link: "#terreno",
       ctaLabel: "Ver Terreno",
     }

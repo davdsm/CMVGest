@@ -3,11 +3,17 @@ import { motion } from "framer-motion";
 import { fadeInUpContainer, fadeInUpItem } from "../lib/motion";
 
 const GALLERY_IMAGES = [
-  "/images/projects/1.jpeg",
-  "/images/projects/2.jpeg",
-  "/images/projects/3.png",
-  "/images/projects/4.png",
-  "/images/projects/5.webp",
+
+  "/images/projects/house.png",
+  "/images/projects/casa2.png",
+  "/images/projects/house.png",
+  "/images/projects/casa2.png",
+  "/images/projects/house.png",
+  "/images/projects/casa2.png",
+  "/images/projects/house.png",
+  "/images/projects/casa2.png",
+  "/images/projects/house.png",
+  "/images/projects/casa2.png",
   "/images/projects/house.png",
 ];
 
@@ -26,6 +32,9 @@ export function HousePage({ onOpenContact }: HousePageProps) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [slideWidth, setSlideWidth] = React.useState(280);
   const [containerWidth, setContainerWidth] = React.useState(0);
+  const swipeStartX = React.useRef<number | null>(null);
+  const swipeDeltaX = React.useRef(0);
+  const isMouseDown = React.useRef(false);
 
   React.useEffect(() => {
     const el = containerRef.current;
@@ -47,15 +56,23 @@ export function HousePage({ onOpenContact }: HousePageProps) {
     return () => ro.disconnect();
   }, []);
 
+  const goNext = React.useCallback(() => {
+    setActiveIndex((prev) =>
+      prev >= CAROUSEL_SLIDES.length - 1 ? prev : prev + 1
+    );
+  }, []);
+
+  const goPrev = React.useCallback(() => {
+    setActiveIndex((prev) => (prev <= 0 ? prev : prev - 1));
+  }, []);
+
   // Autoplay: advance one slide; when at last (clone), stay there and let effect reset to 0
   React.useEffect(() => {
     const timer = window.setInterval(() => {
-      setActiveIndex((prev) =>
-        prev >= CAROUSEL_SLIDES.length - 1 ? prev : prev + 1
-      );
+      goNext();
     }, 4500);
     return () => window.clearInterval(timer);
-  }, []);
+  }, [goNext]);
 
   // When we land on the clone (last index), after transition ends snap back to 0 with no animation
   React.useEffect(() => {
@@ -69,6 +86,60 @@ export function HousePage({ onOpenContact }: HousePageProps) {
     return () => window.clearTimeout(id);
   }, [activeIndex]);
 
+  const finishSwipe = () => {
+    const deltaX = swipeDeltaX.current;
+    const threshold = 40;
+    if (Math.abs(deltaX) > threshold) {
+      if (deltaX < 0) {
+        goNext();
+      } else {
+        goPrev();
+      }
+    }
+    swipeStartX.current = null;
+    swipeDeltaX.current = 0;
+    isMouseDown.current = false;
+  };
+
+  const handleTouchStart: React.TouchEventHandler<HTMLDivElement> = (e) => {
+    if (e.touches.length !== 1) return;
+    swipeStartX.current = e.touches[0].clientX;
+    swipeDeltaX.current = 0;
+  };
+
+  const handleTouchMove: React.TouchEventHandler<HTMLDivElement> = (e) => {
+    if (swipeStartX.current == null) return;
+    const currentX = e.touches[0].clientX;
+    swipeDeltaX.current = currentX - swipeStartX.current;
+  };
+
+  const handleTouchEnd: React.TouchEventHandler<HTMLDivElement> = () => {
+    finishSwipe();
+  };
+
+  const handleMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    // Only left button
+    if (e.button !== 0) return;
+    isMouseDown.current = true;
+    swipeStartX.current = e.clientX;
+    swipeDeltaX.current = 0;
+  };
+
+  const handleMouseMove: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    if (!isMouseDown.current || swipeStartX.current == null) return;
+    swipeDeltaX.current = e.clientX - swipeStartX.current;
+  };
+
+  const handleMouseUp: React.MouseEventHandler<HTMLDivElement> = () => {
+    if (!isMouseDown.current) return;
+    finishSwipe();
+  };
+
+  const handleMouseLeave: React.MouseEventHandler<HTMLDivElement> = () => {
+    if (!isMouseDown.current) return;
+    finishSwipe();
+  };
+
   return (
     <div className="min-h-screen w-full bg-white text-[#1a1020]">
       <motion.main
@@ -80,7 +151,7 @@ export function HousePage({ onOpenContact }: HousePageProps) {
         {/* Badge */}
         <motion.div className="flex justify-center" variants={fadeInUpItem}>
           <span className="rounded-full bg-[#3a2735] px-6 py-1 text-[11px] font-medium tracking-[0.25em] text-white uppercase">
-            Vermil
+            Vermil - Guimarães
           </span>
         </motion.div>
 
@@ -96,7 +167,7 @@ export function HousePage({ onOpenContact }: HousePageProps) {
               backgroundClip: "text",
             }}
           >
-            Moradia&nbsp;Familiar
+            Moradia T3+1 Familiar
           </h1>
         </motion.header>
 
@@ -163,10 +234,16 @@ export function HousePage({ onOpenContact }: HousePageProps) {
                   lineHeight: 1.7,
                 }}
               >
-                Dimensões pensadas para uma vivência familiar confortável,
-                aliando espaço exterior, áreas interiores bem definidas e um
-                projeto preparado para responder às necessidades atuais e
-                futuras. Início da construção em março 2026.
+                ☀️ Excelente exposição solar virada a sul<br />
+                ➕ Divisão extra para escritório, quarto adicional ou sala multiusos<br />
+                🍽️ Cozinha mobilada + sala open space<br />
+                🌿 Espaço Exterior com potencial para piscina privada<br />
+                🚗 Garagem coberta<br />
+                📅 Início: Março 2026 com prazo de execução de 12 meses
+                <br /><br />
+                👉Uma solução habitacional pensada para responder às exigências de conforto, funcionalidade e durabilidade.
+                <br /><br />
+                📍Localizada em Vermil, beneficia de uma posição estratégica, com acessos rápidos a Vila Nova de Famalicão, Guimarães e Braga.
               </p>
             </div>
 
@@ -204,7 +281,14 @@ export function HousePage({ onOpenContact }: HousePageProps) {
         <motion.section className="mt-12" variants={fadeInUpItem}>
           <div
             ref={containerRef}
-            className="overflow-hidden"
+            className="overflow-hidden select-none"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
             style={{
               width: "100vw",
               position: "relative",
@@ -214,32 +298,32 @@ export function HousePage({ onOpenContact }: HousePageProps) {
               marginRight: "-50vw",
             }}
           >
-          <div
-            className="flex ease-[cubic-bezier(0.22,0.61,0.36,1)]"
-            style={{
-              paddingLeft: containerWidth > 0 ? containerWidth / 2 - slideWidth / 2 : 0,
-              paddingRight: containerWidth > 0 ? containerWidth / 2 - slideWidth / 2 : 0,
-              transform: `translateX(-${activeIndex * (slideWidth + CAROUSEL_GAP)}px)`,
-              gap: CAROUSEL_GAP,
-              transition: transitionEnabled
-                ? `transform ${TRANSITION_DURATION_MS}ms cubic-bezier(0.22,0.61,0.36,1)`
-                : "none",
-            }}
-          >
-            {CAROUSEL_SLIDES.map((src, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 aspect-square overflow-hidden rounded-[32px] bg-[#f3f3f3]"
-                style={{ width: slideWidth }}
-              >
-                <img
-                  src={src}
-                  alt={`Vista ${index + 1} da moradia familiar`}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
+            <div
+              className="flex ease-[cubic-bezier(0.22,0.61,0.36,1)]"
+              style={{
+                paddingLeft: containerWidth > 0 ? containerWidth / 2 - slideWidth / 2 : 0,
+                paddingRight: containerWidth > 0 ? containerWidth / 2 - slideWidth / 2 : 0,
+                transform: `translateX(-${activeIndex * (slideWidth + CAROUSEL_GAP)}px)`,
+                gap: CAROUSEL_GAP,
+                transition: transitionEnabled
+                  ? `transform ${TRANSITION_DURATION_MS}ms cubic-bezier(0.22,0.61,0.36,1)`
+                  : "none",
+              }}
+            >
+              {CAROUSEL_SLIDES.map((src, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 aspect-square overflow-hidden rounded-[32px] bg-[#f3f3f3]"
+                  style={{ width: slideWidth }}
+                >
+                  <img
+                    src={src}
+                    alt={`Vista ${index + 1} da moradia familiar`}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </motion.section>
       </motion.main>

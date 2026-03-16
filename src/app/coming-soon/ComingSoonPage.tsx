@@ -89,10 +89,11 @@ export function ComingSoonPage() {
                 <span className="text-white/80">
                   Contacte-nos através de{" "}
                   <a
-                    href="mailto:geral@cmvgest.com"
+                    href="https://api.whatsapp.com/message/LPHGI3ZJULS3G1"
                     className="underline decoration-white/40 underline-offset-4 hover:text-white"
+                    target="_blank"
                   >
-                    geral@cmvgest.com
+                    WhatsApp
                   </a>
                   .
                 </span>
