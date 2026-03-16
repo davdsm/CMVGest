@@ -5,11 +5,7 @@ services:
     build:
       context: .
       args:
-<<<<<<< Updated upstream
-        # true = Coming Soon for everyone; ?live=true shows full site. Set VITE_MAINTANCE_MODE=false to go live.
-=======
         # Uses host .env VITE_MAINTANCE_MODE when you run docker compose; default false
->>>>>>> Stashed changes
         VITE_MAINTANCE_MODE: ${VITE_MAINTANCE_MODE:-true}
     ports:
       - "4000:3000"
