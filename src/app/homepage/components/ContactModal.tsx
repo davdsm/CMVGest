@@ -138,7 +138,7 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+          className="fixed inset-0 z-[60] flex items-start md:items-center justify-center bg-black/60 backdrop-blur-sm px-4 pt-6 pb-6 md:pt-0 md:pb-0"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -147,14 +147,14 @@ export function ContactModal({ open, onClose }: ContactModalProps) {
           role="dialog"
         >
           <motion.div
-            className="relative w-full max-w-[540px] rounded-3xl bg-[#2b1c28] text-white shadow-[0_40px_120px_rgba(0,0,0,0.8)] border border-white/10 overflow-hidden"
+            className="relative w-full max-w-[540px] max-h-[90vh] rounded-3xl bg-[#2b1c28] text-white shadow-[0_40px_120px_rgba(0,0,0,0.8)] border border-white/10 overflow-hidden"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 24 }}
             transition={{ duration: 0.25, ease: [0.22, 0.61, 0.36, 1] }}
           >
             <div className="absolute -top-32 -right-24 w-72 h-72 rounded-full bg-[#af6693]/20 blur-3xl pointer-events-none" />
-            <div className="relative px-6 pt-6 pb-2 md:px-8 md:pt-8 md:pb-4">
+            <div className="relative px-6 pt-6 pb-4 md:px-8 md:pt-8 md:pb-6 max-h-[90vh] overflow-y-auto">
               <div className="flex items-start justify-between gap-4 mb-6 md:mb-8">
                 <div>
                   <p className="font-title text-sm uppercase tracking-[0.25em] text-white/60">
