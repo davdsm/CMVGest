@@ -35,7 +35,7 @@ export function SolutionsSection({ onOpenContact }: SolutionsSectionProps) {
               </defs>
               <text fill="white" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 200, fontSize: "14.5px", letterSpacing: "5px" }}>
                 <textPath xlinkHref="#circlePath">
-                  VALOR · INTEGRIDADE · CONFIANÇA ·
+                  + VALOR + INTEGRIDADE + CONFIANÇA
                 </textPath>
               </text>
             </svg>
@@ -96,19 +96,10 @@ export function SolutionsSection({ onOpenContact }: SolutionsSectionProps) {
             <motion.div variants={fadeInUpItem} className="flex flex-col gap-3">
               <p className="text-[3rem] md:text-[3.5rem] tracking-[-1px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>
                 <span className="text-white">2314 </span>
-                <span className="text-[#af6693]">m^</span>
+                <span className="text-[#af6693]">m2</span>
               </p>
               <p className="text-[#a0a0a0]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: "18px" }}>
                 Terreno
-              </p>
-            </motion.div>
-            <motion.div variants={fadeInUpItem} className="flex flex-col gap-3">
-              <p className="text-[3rem] md:text-[3.5rem] tracking-[-1px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>
-                <span className="text-white">297 </span>
-                <span className="text-[#af6693]">m^</span>
-              </p>
-              <p className="text-[#a0a0a0]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: "18px" }}>
-                m2 construção
               </p>
             </motion.div>
           </div>

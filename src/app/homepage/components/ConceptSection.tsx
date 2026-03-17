@@ -38,7 +38,7 @@ export function ConceptSection({ onOpenContact }: ConceptSectionProps) {
               </defs>
               <text fill="white" style={{ fontFamily: "'Poppins', sans-serif", fontWeight: 200, fontSize: "14.5px", letterSpacing: "5px" }}>
                 <textPath xlinkHref="#circlePath2">
-                  VALOR · INTEGRIDADE · CONFIANÇA ·
+                  + VALOR + INTEGRIDADE + CONFIANÇA
                 </textPath>
               </text>
             </svg>
