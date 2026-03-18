@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.cmvgest.pt/sitemap.xml
+Sitemap: https://cmvgest.com/sitemap.xml
 

@@ -61,9 +61,9 @@ export default function App() {
   );
 
   let pageContent: React.ReactNode;
-  let pageTitle = "CMVGest – Projetos chave na mão em Vermil";
+  let pageTitle = "CMVGest – Projetos chave na mão em Guimarães";
   let pageDescription =
-    "CMVGest desenvolve projetos chave na mão em Vermil e região: terrenos, arquitetura e construção integrados, com foco em conforto, integridade e valorização do investimento.";
+    "CMVGest desenvolve projetos chave na mão em Guimarães e região: terrenos, arquitetura e construção integrados, com foco em conforto, integridade e valorização do investimento.";
 
   if (!showHome) {
     pageContent = <ComingSoonPage />;
