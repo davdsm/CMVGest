@@ -3,33 +3,20 @@ import { motion } from "framer-motion";
 import { fadeInUpContainer, fadeInUpItem } from "../lib/motion";
 
 const GALLERY_IMAGES = [
+  "/images/projects/planta.jpeg",
   "/images/projects/house.png",
   "/images/projects/casa2.png",
-  "/images/projects/house.png",
-  "/images/projects/casa2.png",
-  "/images/projects/house.png",
-  "/images/projects/casa2.png",
-  "/images/projects/house.png",
-  "/images/projects/casa2.png",
-  "/images/projects/house.png",
-  "/images/projects/casa2.png",
-  "/images/projects/house.png",
-  "/images/projects/casa2.png",
-  "/images/projects/house.png",
-  "/images/projects/casa2.png",
-  "/images/projects/house.png",
-  "/images/projects/casa2.png",
-  "/images/projects/house.png",
-  "/images/projects/casa2.png",
-  "/images/projects/house.png",
-  "/images/projects/casa2.png",
-  "/images/projects/house.png"
+  "/images/projects/casa1.jpg",
+  "/images/projects/casa3.jpg",
+  "/images/projects/casa4.jpg",
+  "/images/projects/casa5.jpg",
+  "/images/projects/casa6.jpg",
 ];
 
 const CAROUSEL_GAP = 16;
 
 // Infinite loop: clone first slide at end so we can animate to it then reset
-const CAROUSEL_SLIDES = [...GALLERY_IMAGES, GALLERY_IMAGES[0]];
+const CAROUSEL_SLIDES = [...GALLERY_IMAGES, ...GALLERY_IMAGES, ...GALLERY_IMAGES, ...GALLERY_IMAGES, ...GALLERY_IMAGES, GALLERY_IMAGES[0],];
 
 const TRANSITION_DURATION_MS = 700;
 
@@ -333,6 +320,28 @@ export function HousePage({ onOpenContact }: HousePageProps) {
                 </div>
               ))}
             </div>
+          </div>
+          <div className="mt-6 flex justify-center gap-4">
+            <button
+              type="button"
+              onClick={goPrev}
+              className="h-11 w-11 rounded-full border border-[#3a2735]/30 text-[#3a2735] flex items-center justify-center text-lg leading-none hover:border-[#3a2735] hover:bg-[#3a2735]/5 transition-colors cursor-pointer"
+              aria-label="Imagem anterior"
+            >
+              <span className="flex items-center justify-center leading-none -translate-y-[1px]">
+                ‹
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={goNext}
+              className="h-11 w-11 rounded-full border border-[#3a2735]/30 text-[#3a2735] flex items-center justify-center text-lg leading-none hover:border-[#3a2735] hover:bg-[#3a2735]/5 transition-colors cursor-pointer"
+              aria-label="Próxima imagem"
+            >
+              <span className="flex items-center justify-center leading-none -translate-y-[1px]">
+                ›
+              </span>
+            </button>
           </div>
         </motion.section>
       </motion.main>
